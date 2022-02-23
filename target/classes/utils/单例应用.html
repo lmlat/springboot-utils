@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="login">登录</button>
+<script>
+
+    const createLoginLayer = function () {
+        const div = document.createElement('div')
+        div.id = "layer";
+        div.innerHTML = '登录对话框';
+        div.style.display = 'none';
+        document.body.appendChild(div);
+        return div;
+    }
+    const getInstance = function (fn) {
+        let result;
+        return function () {
+            console.log("result:", result)
+            return result || (result = fn.apply(this, arguments));
+        }
+    }
+</script>
+<script>
+    let timer;
+    const loginLayer = getInstance(createLoginLayer);
+    document.getElementById('login').onclick = function () {
+        let layer = loginLayer();
+        layer.style.display = "block";
+        timer = setTimeout(function () {
+            document.getElementById("layer").style.display = "none";
+            clearTimeout(timer);
+        }, 3000);
+        console.log(layer)
+    }
+</script>
+</body>
+</html>

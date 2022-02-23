@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="box">
+<div id="time" style="height: 1000px">1</div>
+<div id="time2" style="height: 1000px">2</div>
+<div id="time3" style="height: 1000px">3000</div>
+<script src="test.js"></script>
+<script src="common.util.js"></script>
+<script>
+    /*//微信环境
+    let isWx = isWeiXinWeb()
+    //小程序环境
+    let isWechatApp = false
+    isWechatApplet().then(res => {
+        isWechatApp = res
+    }).catch(res => {
+        isWechatApp = false
+    })
+    console.log(isWx, isWechatApp)*/
+
+
+
+    /*let el = document.getElementById('time3')
+    window.scrollTop(el.offsetTop, 500)*/
+
+
+
+
+    /*let stopWatch = Stopwatch.createStarted()
+    console.log(new Date(stopWatch.value));
+    for(let i = 0; i < 5000000000; i++);
+    let time = stopWatch.elapsed();
+    console.log(time)*/
+
+
+
+
+    /*console.log(document.querySelector("#box"));
+    console.log(document.getElementById("box"));
+    console.log($("#box"));
+    console.log($("div"));
+    console.log(document.querySelectorAll("div"));
+    console.log(document.getElementsByTagName("div"));*/
+</script>
+<script>
+    var imgStr = "<p><IMG src='http://www.google.com'/></p>" +
+        "<img alt='picture1' src='http://www.baidu.com'/>" +
+        "<img title='picture2' alt='picture2' src='http://www.aliyun.com'/>" +
+        "<div><img/></div>"
+    console.log("aaaAAkaaabbbkbbcccckccc艾艾艾艾艾".split('').sort().join('').replace(/([\w\u2E80-\u9FFF])\1+/g, "$1"))
+
+
+    // LocalUtils.set({"key1": "aitao", "key2": "lml"});
+    // console.log(LocalUtils.get("key1"));
+
+    console.log(DateUtils.format(new Date().getTime(), '{y}年{m}月{d} {h}时{M}分{s}秒 {w}'));
+    let utils = new Utils();
+    console.log(CommonUtils.getBrowserInfo());
+    console.log(CommonUtils.getBrowserType());
+
+    console.log(ArrayUtils.removeIfNull([0, 1, false, 2, '', 3, 'a', 'e' * 23, NaN, 's', 34]));
+
+
+    console.log(ArrayUtils.count([1, 2, 3, 4, 1, 1, 1, 1], 1));
+    console.log(ArrayUtils.distinct([1, 2, 3, 4, 1, 1, 1, 1]));
+</script>
+</body>
+</html>

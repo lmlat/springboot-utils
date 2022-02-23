@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //全局对象 可视为一个单例对象使用，它符合单例模式2大特性：全局性，唯一性
+    var obj = {};
+
+    const Singleton = function (name) {
+        this.name = name;
+        this.instance = null;
+    }
+
+    Singleton.prototype = {
+        getName: function () {
+            return this.name;
+        },
+        setName: function (name) {
+            this.name = name;
+        }
+    }
+
+    //模拟定义一个静态实例化方法
+    Singleton.getInstance = function (name) {
+        if (!this.instance) {
+            this.instance = new Singleton(name);
+        }
+        return this.instance;
+    }
+</script>
+<script>
+    const a = Singleton.getInstance("aitao");
+    const b = Singleton.getInstance("aitao");
+    console.log(a === b);
+    console.log(a.getName());
+    console.log(b.getName());
+</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrapper {
+            position: relative;
+            width: 200px;
+            height: 20px;
+            border: 1px solid darkgray;
+        }
+
+        #fill {
+            display: inline-block;
+            width: 0;
+            height: 20px;
+            background: #6caf00;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<!--外层容器-->
+<div id="wrapper">
+    <!--填充块-->
+    <div id="fill"></div>
+    <div id="box">
+
+    </div>
+</div>
+<div id="time"></div>
+<script>
+    var slider = (function () {
+        init = function () {
+            var wrapper = document.getElementById('wrapper');
+            var fill = document.getElementById('fill');
+            var box = document.getElementById('box');
+            move(wrapper, fill, box);
+        };
+        move = function (dom1, dom3, dom4) {
+            //drag用来存储滑块允许拖拽和不允许拖拽的状态
+            var drag = 0;
+            //在滑动条上绑定click事件以实现点击任意位置,自动调整滑块和填充块的效果
+
+            //移入#box盒子，修改drag的状态
+            dom4.addEventListener('mouseenter', function () {
+                drag = 1;
+            });
+            // 使用pageX计算和视窗左侧的距离而不是和滑动块左侧的距离
+            dom1.addEventListener('mousemove', function (e) {
+                console.log(e.pageX);
+                if (drag == 1) {
+                    if (e.pageX > 195) {
+                        dom3.style.width = '200px';
+                    } else if (e.pageX < 5) {
+                        dom3.style.width = '0px';
+                    } else {
+                        dom3.style.width = e.pageX + 'px';
+                    }
+                }
+            });
+
+        };
+        return {
+            init: init
+        }
+    })();
+    //滑动容器初始化
+    slider.init();
+</script>
+</body>
+</html>
